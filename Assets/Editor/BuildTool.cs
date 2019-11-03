@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using UnityEditor;
 using UnityEngine;
 
@@ -13,7 +12,7 @@ public class BuildTool
         string rootPath = "Build";
         //string build = $"{DateTime.Now:yyMMddHHmmss}";
         string outputPath = Path.Combine(rootPath, "Android");
-        string filename = outputPath + $"\\SunlightRock.apk";
+        string filename = outputPath + $"\\TestUnity.apk";
         
         if (File.Exists(filename))
         {
@@ -21,7 +20,6 @@ public class BuildTool
         }
 
         Directory.CreateDirectory(outputPath);
-        EditorUserBuildSettings.androidBuildSystem = AndroidBuildSystem.Gradle;
         BuildPipeline.BuildPlayer(EditorBuildSettings.scenes, filename, buildTarget, BuildOptions.None);
         Debug.Log(buildTarget + "平台构建完成.  文件位于" + filename);
     }
