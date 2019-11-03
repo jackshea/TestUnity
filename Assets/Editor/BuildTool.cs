@@ -20,6 +20,7 @@ public class BuildTool
         }
 
         Directory.CreateDirectory(outputPath);
+        EditorUserBuildSettings.androidBuildSystem = AndroidBuildSystem.Internal;
         BuildPipeline.BuildPlayer(EditorBuildSettings.scenes, filename, buildTarget, BuildOptions.None);
         Debug.Log(buildTarget + "平台构建完成.  文件位于" + filename);
     }
